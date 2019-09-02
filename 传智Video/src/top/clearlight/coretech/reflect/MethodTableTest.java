@@ -7,6 +7,7 @@ import java.lang.reflect.Method;
  */
 public class MethodTableTest {
     public static void main(String[] args) throws NoSuchMethodException {
+        // getMethod方法的参数 ： 方法名，参数列表的类型
         Method square = MethodTableTest.class.getMethod("square", double.class);
         Method sqrt = Math.class.getMethod("sqrt", double.class);
 
@@ -27,6 +28,11 @@ public class MethodTableTest {
         for (double x = from; x <= to; x += dx) {
             try {
                 // invoke方法，允许调用包装在当前Method对象中的方法
+                /*
+                invoke方法 ： 1. 如果是静态方法，第一个参数可以被忽略，既可以将它设置为null
+                             2. 如果返回类型是基本类型，invoke方法会返回其包装器类型。
+                             3.
+                 */
                 double y = (Double) f.invoke(null, x);
                 System.out.printf("%10.4f | %10.4f%n", x, y);
             } catch (Exception e) {

@@ -29,9 +29,9 @@ public class MethodTableTest {
             try {
                 // invoke方法，允许调用包装在当前Method对象中的方法
                 /*
-                invoke方法 ： 1. 如果是静态方法，第一个参数可以被忽略，既可以将它设置为null
-                             2. 如果返回类型是基本类型，invoke方法会返回其包装器类型。
-                             3.
+                invoke方法 ：
+                    1. 如果是静态方法，第一个参数可以被忽略，既可以将它设置为null
+                    2. 如果返回类型是基本类型，invoke方法会返回其包装器类型。
                  */
                 double y = (Double) f.invoke(null, x);
                 System.out.printf("%10.4f | %10.4f%n", x, y);

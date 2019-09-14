@@ -5,6 +5,15 @@ public class Employee {
     private String name;
     private int age;
     private double salary;
+    private Status Status;
+
+    public Employee.Status getStatus() {
+        return Status;
+    }
+
+    public void setStatus(Employee.Status status) {
+        Status = status;
+    }
 
     @Override
     public String toString() {
@@ -13,6 +22,7 @@ public class Employee {
                 ", name='" + name + '\'' +
                 ", age=" + age +
                 ", salary=" + salary +
+                ", Status=" + Status +
                 '}';
     }
 
@@ -80,6 +90,14 @@ public class Employee {
         return name != null ? name.equals(employee.name) : employee.name == null;
     }
 
+    public Employee(int id, String name, int age, double salary, Employee.Status status) {
+        this.id = id;
+        this.name = name;
+        this.age = age;
+        this.salary = salary;
+        Status = status;
+    }
+
     @Override
     public int hashCode() {
         int result;
@@ -90,5 +108,11 @@ public class Employee {
         temp = Double.doubleToLongBits(salary);
         result = 31 * result + (int) (temp ^ (temp >>> 32));
         return result;
+    }
+
+    public enum Status {
+        FREE,
+        BUSY,
+        VOCATION;
     }
 }

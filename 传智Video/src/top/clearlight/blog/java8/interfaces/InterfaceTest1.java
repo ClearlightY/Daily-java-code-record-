@@ -1,7 +1,5 @@
 package top.clearlight.blog.java8.interfaces;
 
-import top.clearlight.coretech.interfaces.InterfaceTest;
-
 /**
  * Java8 接口新特性
  *

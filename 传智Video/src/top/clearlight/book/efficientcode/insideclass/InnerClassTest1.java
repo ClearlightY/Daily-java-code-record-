@@ -12,29 +12,17 @@ public class InnerClassTest1 {
 
     }
 
-    {
-        // static int b = 2;
-    }
-
-    static {
-        // static int c = 1;
-    }
-
     static int a = 1;
 
     public static void main(String[] args) {
         // 两个匿名内部类
-        (new Thread() {
-        }).start();
-        (new Thread() {
-        }).start();
+        (new Thread() {}).start();
+        (new Thread() {}).start();
 
         // 两个方法内部类
         class MethodClass {
         }
         class MethodClass2 {
         }
-
-
     }
 }

@@ -3,10 +3,8 @@ package top.clearlight.bilibili.java8.stream;
 import org.junit.jupiter.api.Test;
 import top.clearlight.bilibili.java8.lambda.Employee;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
+import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 /**
@@ -24,11 +22,70 @@ public class StreamAPITest2 {
     List<Employee> emp = Arrays.asList(
             new Employee(100, "Tary", 18, 3000),
             new Employee(100, "Mary", 18, 3000),
-            new Employee(100, "Oary", 18, 3000),
+            new Employee(100, "Oary", 18, 4900),
             new Employee(101, "Jack", 38, 3000),
             new Employee(102, "BOb", 28, 5000),
             new Employee(103, "Aom", 18, 6000)
     );
+
+    @Test
+    public void test9() {
+        //\u000d
+       //\u0007
+        System.out.println("hello world");
+        //\u000dint i = 1;
+        //\u000dSystem.out.println(i);
+    }
+
+    @Test
+    public void test8() {
+        emp.stream().filter(e -> e.getAge() < 20 && e.getSalary() > 4000).forEach(System.out::println);
+        emp.stream().filter(e -> e.getAge() < 20).filter(e -> e.getSalary() > 4000).forEach(System.out::println);
+        emp.stream().filter(e -> e.getId() > 100).map(e -> e.getAge() > 20).forEach(System.out::println);
+        emp.stream().filter(e -> e.getId() > 100).map(e -> e.getSalary() * 2).forEach(System.out::println);
+        emp.stream().filter(e -> e.getId() > 100).map(e -> e.getName().toUpperCase()).forEach(System.out::println);
+
+        Stream<List<Integer>> inputStream = Stream.of(
+                Arrays.asList(1),
+                Arrays.asList(2, 3),
+                Arrays.asList(4, 5, 6)
+        );
+        Stream<Integer> outputStream = inputStream.
+                flatMap((childList) -> childList.stream());
+        outputStream.forEach(System.out::println);
+
+        // inputStream.forEach(System.out::println);
+
+        Supplier<Stream<List<Employee>>> streamSupplier3 = () -> Stream.of(emp);
+        streamSupplier3.get().forEach(System.out::println);
+        streamSupplier3.get().forEach(System.out::println);
+
+
+        /*
+            解决Stream无法重用的问题
+         */
+        String[] array = {"a", "b", "c", "d", "e"};
+
+        Supplier<Stream<String>> streamSupplier = () -> Stream.of(array);
+
+        //get new stream
+        streamSupplier.get().forEach(x -> System.out.println(x));
+
+        //get another new stream
+        long count = streamSupplier.get().filter(x -> "b".equals(x)).count();
+        System.out.println(count);
+
+        /*
+            解决方法2
+         */
+        Supplier<Stream<String>> streamSupplier2
+                = () -> Stream.of("A", "B", "C", "D");
+        Optional<String> result1 = streamSupplier2.get().findAny();
+        System.out.println(result1.get());
+        Optional<String> result2 = streamSupplier2.get().findFirst();
+        System.out.println(result2.get());
+
+    }
 
     // 中间操作
 

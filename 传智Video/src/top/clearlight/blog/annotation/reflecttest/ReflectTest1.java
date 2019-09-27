@@ -3,10 +3,12 @@ package top.clearlight.blog.annotation.reflecttest;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-import java.util.Arrays;
 
+/**
+ * @author lixiaoyi
+ */
 // @MyAnnotation(msg = "type annotation", id = 1)
-public class ReflectTest1 extends SuperClass{
+public class ReflectTest1 extends SuperClass {
     @FieldAnnotation(value = "file annotation")
     private int age;
 
@@ -20,6 +22,10 @@ public class ReflectTest1 extends SuperClass{
     @MyAnnotation(id = 4)
     public void test2() {
         System.out.println("直接获取多个方法的注解");
+    }
+
+    public void test3(@MyAnnotation(msg = "Parameter", id = 5) String str, @MyAnnotation(msg = "Parameter2", id = 6) int i) {
+        System.out.println("测试方法参数的注解");
     }
 
     public static void main(String[] args) {
@@ -57,6 +63,10 @@ public class ReflectTest1 extends SuperClass{
         Method[] methodsAns = rt.getDeclaredMethods();
         for (Method methodsAn : methodsAns) {
             Annotation[] ans = methodsAn.getAnnotations();
+            System.out.println(methodsAn.getName() + "方法的注解:");
+            if (ans.length == 0) {
+                System.out.println("无");
+            }
             for (Annotation an : ans) {
                 System.out.println(an);
             }
@@ -71,6 +81,29 @@ public class ReflectTest1 extends SuperClass{
             for (Person person : conAn.value()) {
                 System.out.println(person.role());
             }
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+
+        // 获取test3方法的参数上的注解
+        try {
+            Method method = rt.getDeclaredMethod("test3", String.class, int.class);
+            Annotation[][] parameterAnnotations = method.getParameterAnnotations();
+            Class<?>[] parameterTypes = method.getParameterTypes();
+
+            int i = 0;
+            for (Annotation[] parameterAnnotation : parameterAnnotations) {
+                Class parameterType = parameterTypes[i++];
+
+                for (Annotation annotation : parameterAnnotation) {
+                    if (annotation instanceof MyAnnotation) {
+                        System.out.println("param:" + parameterType.getSimpleName());
+                        System.out.println("msg=" + ((MyAnnotation) annotation).msg());
+                        System.out.println("id=" + ((MyAnnotation) annotation).id());
+                    }
+                }
+            }
+
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }

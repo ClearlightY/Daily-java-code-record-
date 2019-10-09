@@ -6,7 +6,7 @@ public class Train2 implements Runnable {
     @Override
     public void run() {
         while (ticket > 0) {
-            // Thread.currentThread().getName() 表示当前线程名
+            // thread.currentThread().getName() 表示当前线程名
             System.out.println(Thread.currentThread().getName() + "买票-->" + (this.ticket--));
         }
         try {

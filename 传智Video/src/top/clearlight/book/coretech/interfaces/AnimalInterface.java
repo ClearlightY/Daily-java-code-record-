@@ -7,7 +7,4 @@ public interface AnimalInterface {
 
     }
 
-    private static void help() {
-
-    }
 }

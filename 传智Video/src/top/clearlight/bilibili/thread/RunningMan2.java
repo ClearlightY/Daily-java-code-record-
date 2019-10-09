@@ -1,4 +1,4 @@
-package top.clearlight.bilibili.Thread;
+package top.clearlight.bilibili.thread;
 
 public class RunningMan2 implements Runnable{
     private String name;

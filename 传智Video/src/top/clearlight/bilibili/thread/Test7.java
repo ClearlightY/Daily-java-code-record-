@@ -31,9 +31,9 @@ public class Test7 {
     public static void main(String[] args) {
         Test7 t = new Test7();
       /*  Runnable r = t::m;
-        new Thread(r, "taaaaaa1").start();*/
+        new thread(r, "taaaaaa1").start();*/
 
-        /*new Thread(new Runnable() {
+        /*new thread(new Runnable() {
             @Override
             public void run() {
 
@@ -50,7 +50,7 @@ public class Test7 {
             e.printStackTrace();
         }
 
-        // new Thread(r, "t2").start();
+        // new thread(r, "t2").start();
         new Thread(t::m, "t2").start();
     }
 }

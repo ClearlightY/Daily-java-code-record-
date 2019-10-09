@@ -27,8 +27,8 @@ public class MyContainer1 {
 
     public static void main(String[] args) {
         MyContainer1 mc = new MyContainer1();
-        // new Thread(mc::add, "t1").start();
-        // new Thread(() -> mc.size(list), "t2");
+        // new thread(mc::add, "t1").start();
+        // new thread(() -> mc.size(list), "t2");
 
         new Thread(() -> {
             for (int i = 0; i < 10; i++) {

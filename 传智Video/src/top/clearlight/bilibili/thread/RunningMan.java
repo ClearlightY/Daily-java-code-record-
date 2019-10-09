@@ -1,4 +1,4 @@
-package top.clearlight.bilibili.Thread;
+package top.clearlight.bilibili.thread;
 
 public class RunningMan extends Thread {
     private String name;

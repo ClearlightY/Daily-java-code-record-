@@ -1,4 +1,4 @@
-package top.clearlight.bilibili.Thread;
+package top.clearlight.bilibili.thread;
 
 public class RunningTest2 {
     public static void main(String[] args) {

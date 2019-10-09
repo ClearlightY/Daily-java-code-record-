@@ -1,4 +1,4 @@
-package top.clearlight.bilibili.Thread.System12306;
+package top.clearlight.bilibili.thread.System12306;
 
 public class Ticket {
 

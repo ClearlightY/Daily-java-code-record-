@@ -24,20 +24,20 @@ public class Test4 {
     public static void main(String[] args) {
         Test4 t = new Test4();
 
-        /*new Thread(() -> t.m1()).start();
-        new Thread(() -> t.m2()).start();*/
+        /*new thread(() -> t.m1()).start();
+        new thread(() -> t.m2()).start();*/
 
         new Thread(t::m1).start();
         new Thread(t::m2).start();
 
-        /*new Thread(new Runnable() {
+        /*new thread(new Runnable() {
             @Override
             public void run() {
                 t.m1();
             }
         }).start();
 
-        new Thread(new Runnable() {
+        new thread(new Runnable() {
             @Override
             public void run() {
                 t.m2();

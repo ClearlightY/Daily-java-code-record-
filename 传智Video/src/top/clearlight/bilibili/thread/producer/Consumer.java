@@ -1,4 +1,4 @@
-package top.clearlight.bilibili.Thread.producer;
+package top.clearlight.bilibili.thread.producer;
 
 public class Consumer extends Thread {
 

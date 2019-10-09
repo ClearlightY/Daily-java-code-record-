@@ -1,4 +1,4 @@
-package top.clearlight.bilibili.Thread;
+package top.clearlight.bilibili.thread;
 
 import java.util.Arrays;
 

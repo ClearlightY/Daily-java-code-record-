@@ -1,4 +1,4 @@
-package top.clearlight.bilibili.Thread.producer;
+package top.clearlight.bilibili.thread.producer;
 
 import java.util.ArrayList;
 

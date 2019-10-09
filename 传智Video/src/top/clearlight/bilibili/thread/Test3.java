@@ -1,4 +1,4 @@
-package top.clearlight.bilibili.thread.synchronizedtest;
+package top.clearlight.bilibili.thread;
 
 /**
  * 分析该程序的输出

@@ -43,7 +43,7 @@ public class Apple {
         Function<Integer, Apple> apple = new Function<Integer, Apple>() {
             @Override
             public Apple apply(Integer t) {
-                // TODO Auto-generated method stub
+                //  TODO Auto-generated method stub
                 return new Apple(t);
             }
         };

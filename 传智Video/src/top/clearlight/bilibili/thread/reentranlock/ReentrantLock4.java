@@ -1,4 +1,4 @@
-package top.clearlight.bilibili.thread.synchronizedtest.reentranlock;
+package top.clearlight.bilibili.thread.reentranlock;
 
 import java.util.concurrent.locks.ReentrantLock;
 

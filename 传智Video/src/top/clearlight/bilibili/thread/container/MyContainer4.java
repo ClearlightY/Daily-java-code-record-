@@ -1,6 +1,4 @@
-package top.clearlight.bilibili.thread.synchronizedtest.container;
-
-import jdk.swing.interop.SwingInterOpUtils;
+package top.clearlight.bilibili.thread.container;
 
 import java.util.ArrayList;
 import java.util.List;

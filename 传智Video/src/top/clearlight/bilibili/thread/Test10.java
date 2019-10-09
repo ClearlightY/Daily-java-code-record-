@@ -1,4 +1,4 @@
-package top.clearlight.bilibili.thread.synchronizedtest;
+package top.clearlight.bilibili.thread;
 
 import java.util.ArrayList;
 import java.util.List;

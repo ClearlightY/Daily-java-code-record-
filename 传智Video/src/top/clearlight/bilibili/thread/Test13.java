@@ -1,4 +1,4 @@
-package top.clearlight.bilibili.thread.synchronizedtest;
+package top.clearlight.bilibili.thread;
 
 /**
  * 不要以字符串常量作为锁定对象

@@ -4,7 +4,7 @@ public class Person {
     String firstName;
     String lastName;
 
-    Person() {}
+    public Person() {}
 
     @Override
     public String toString() {

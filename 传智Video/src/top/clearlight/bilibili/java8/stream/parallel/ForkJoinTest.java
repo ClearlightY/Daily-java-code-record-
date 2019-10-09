@@ -24,6 +24,7 @@ public class ForkJoinTest {
 
         Instant end = Instant.now();
 
+        // 20124
         System.out.println(Duration.between(start, end).toMillis());
     }
 
@@ -44,6 +45,7 @@ public class ForkJoinTest {
 
         Instant end = Instant.now();
 
+        // 31579
         System.out.println("耗费的时间为:" + Duration.between(start, end).toMillis());
     }
 
@@ -60,6 +62,7 @@ public class ForkJoinTest {
 
         Instant end = Instant.now();
 
+        // 12392
         System.out.println("耗费时间为:" + Duration.between(start, end).toMillis());
     }
 }

@@ -5,6 +5,7 @@ package top.clearlight.bilibili.thread.feiyangedu.syn;
  * 原子操作是指不能被中断的一个或一系列操作
  */
 class AddThread extends Thread {
+    @Override
     public void run() {
         for (int i = 0; i < Main.LOOP; i++) {
             synchronized (Main.lock) {

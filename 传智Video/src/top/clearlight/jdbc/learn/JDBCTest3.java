@@ -5,7 +5,7 @@ import java.sql.*;
 /**
  * ResultSet结果集测试
  */
-public class JDBCTest3 {
+public class  JDBCTest3 {
     public static void main(String[] args) {
         Connection con = null;
         PreparedStatement ps = null;

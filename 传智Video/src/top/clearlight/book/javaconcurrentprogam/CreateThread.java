@@ -1,6 +1,5 @@
 package top.clearlight.book.javaconcurrentprogam;
 
-import jdk.jfr.StackTrace;
 import org.junit.jupiter.api.Test;
 
 public class CreateThread {
@@ -33,6 +32,7 @@ public class CreateThread {
         System.out.println(Thread.currentThread().getName());
         for (int i = 0; i < 10; i++) {
             new Thread("" + i) {
+                @Override
                 public void run() {
                     System.out.println("Thread: " + getName() + "running");
                 }

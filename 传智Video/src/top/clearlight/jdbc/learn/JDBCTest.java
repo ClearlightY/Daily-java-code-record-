@@ -31,6 +31,7 @@ public class JDBCTest {
             if (!con.isClosed()) {
                 System.out.println("数据库连接成功");
             }
+            // 获取执行sql的对象 Statement
             Statement statement = con.createStatement();
             String sql = "select * from stu"; // 表格名称为stu
             ResultSet resultSet = statement.executeQuery(sql);

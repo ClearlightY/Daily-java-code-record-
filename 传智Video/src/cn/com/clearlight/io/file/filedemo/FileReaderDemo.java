@@ -15,8 +15,9 @@ public class FileReaderDemo {
         在创建读取流对象时,必须要明确被读取的文件.一定要确定该文件是存在的
         用一个 读取流关联一个已存在文件
          */
+        FileReader fr = null;
         try {
-            FileReader fr = new FileReader("demo.txt");
+            fr = new FileReader("demo.txt");
 
             // 每次只可以读取一个字符.
             /* // 用Reader中read方法读取字符
@@ -29,11 +30,14 @@ public class FileReaderDemo {
             while ((ch = fr.read()) != -1) {
                 System.out.print((char) ch);
             }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         } finally {
+            try {
+                fr.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
 
     }

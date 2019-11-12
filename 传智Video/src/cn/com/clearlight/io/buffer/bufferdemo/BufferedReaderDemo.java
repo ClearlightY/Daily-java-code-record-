@@ -34,6 +34,7 @@ public class BufferedReaderDemo {
         char[] buf = new char[1024];
 
         int len = 0;
+        // read方法: 将字符读入数组. 返回结果为读取的字符长度,如果已经到达流的结尾, 则返回 -1.
         while ((len = fr.read(buf)) != -1) {
             System.out.println(new String(buf, 0, len));
         }

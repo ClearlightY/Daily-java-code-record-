@@ -8,7 +8,7 @@ public class HashMapDemo {
         // 此类不保证映射的顺序,特别是它不保证该顺序恒久不变
         m1.put("姓名", "Jack");
         m1.put("age", 16);
-        m1.put("性别", '男');
+        // m1.put("性别", '男');
         m1.put("电话", "13313313090");
         m1.put(null, "is null");
         m1.put("地址", null);

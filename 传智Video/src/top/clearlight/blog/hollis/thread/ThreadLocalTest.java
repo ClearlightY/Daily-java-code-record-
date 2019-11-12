@@ -11,7 +11,7 @@ package top.clearlight.blog.hollis.thread;
  *
  */
 class Bank{
-    ThreadLocal<Integer> t = new ThreadLocal<>(){
+    ThreadLocal<Integer> t = new ThreadLocal<Integer>(){
         // 重写里面的方法就可以修改初始值
         @Override
         protected Integer initialValue() {

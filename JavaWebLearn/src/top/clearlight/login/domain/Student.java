@@ -1,4 +1,4 @@
-package top.clearlight.domain;
+package top.clearlight.login.domain;
 
 public class Student {
     private String username;

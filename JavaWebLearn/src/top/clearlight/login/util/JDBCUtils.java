@@ -1,4 +1,4 @@
-package top.clearlight.util;
+package top.clearlight.login.util;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 

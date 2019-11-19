@@ -1,8 +1,8 @@
-package top.clearlight.dao;
+package top.clearlight.login.dao;
 
 import org.springframework.jdbc.core.JdbcTemplate;
-import top.clearlight.domain.Student;
-import top.clearlight.util.JDBCUtils;
+import top.clearlight.login.domain.Student;
+import top.clearlight.login.util.JDBCUtils;
 
 import java.util.Map;
 

@@ -3,17 +3,28 @@ package top.clearlight.login.domain;
 public class Student {
     private String username;
     private String password;
+    private String age;
+
+    public String getYears() {
+        return age;
+    }
+
+    public void setYears(String age) {
+        this.age = age;
+    }
+
+
+    public String getUsername() {
+        return username;
+    }
 
     @Override
     public String toString() {
         return "Student{" +
                 "username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", age='" + age + '\'' +
                 '}';
-    }
-
-    public String getUsername() {
-        return username;
     }
 
     public void setUsername(String username) {

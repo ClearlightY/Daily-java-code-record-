@@ -13,6 +13,8 @@ import java.util.Random;
 
 /**
  * 验证码框架 kaptcha
+ * <p>
+ * 对验证码实现后, 并且将生成的验证码存储到session中
  */
 @WebServlet("/identifyCodeServlet")
 public class IdentifyCodeServlet extends HttpServlet {
@@ -41,13 +43,19 @@ public class IdentifyCodeServlet extends HttpServlet {
         // 生成随机角标
         Random r = new Random();
 
+        StringBuilder sb = new StringBuilder();
         for (int i = 1; i <= 4; i++) {
             int index = r.nextInt(str.length());
             // 随机字符
             char ch = str.charAt(index);
+            sb.append(ch);
             // 写验证码
-            g.drawString(ch + "", width/5*i-10, height/2);
+            g.drawString(ch + "", width / 5 * i - 10, height / 2);
         }
+
+        String checkCode_session = sb.toString();
+        // 将验证码存储到session中
+        request.getSession().setAttribute("checkCode_session", checkCode_session);
 
         // 2.4 画干扰线
         g.setColor(Color.GREEN);

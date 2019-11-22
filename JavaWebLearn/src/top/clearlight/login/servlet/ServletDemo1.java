@@ -12,6 +12,9 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
+/**
+ * 使用了BeanUtils来封装对象
+ */
 @WebServlet("/ServletDemo1")
 public class ServletDemo1 extends HttpServlet {
     @Override

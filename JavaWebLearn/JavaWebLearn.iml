@@ -19,12 +19,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.273" level="application_server_libraries" />
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
-    <orderEntry type="library" name="druid-1.1.21 (2)" level="project" />
-    <orderEntry type="library" name="spring-beans-4.3.0.RELEASE (2)" level="project" />
-    <orderEntry type="library" name="mysql-connector-java-5.1.48 (2)" level="project" />
-    <orderEntry type="library" name="commons-logging-1.2 (2)" level="project" />
     <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="lib (2)" level="project" />
     <orderEntry type="library" name="lib (3)" level="project" />

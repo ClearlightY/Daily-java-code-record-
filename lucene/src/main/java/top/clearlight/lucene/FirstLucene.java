@@ -73,7 +73,7 @@ public class FirstLucene {
         // 第四步: 创建一个TermQuery对象, 指定查询的域和查询的关键词
         Query query = new TermQuery(new Term("fileName", "txt"));
         // 第五步: 执行查询
-        TopDocs topDocs = indexSearcher.search(query, 2);
+        TopDocs topDocs = indexSearcher.search(query, 10);
         // 第六步: 返回查询结果. 遍历查询结果并输出
         ScoreDoc[] scoreDocs = topDocs.scoreDocs;
         for (ScoreDoc scoreDoc : scoreDocs) {

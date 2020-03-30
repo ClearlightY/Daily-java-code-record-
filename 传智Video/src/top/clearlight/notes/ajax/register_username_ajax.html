@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //给id=username的输入域注册失去焦点事件
+            $("#username").blur(function () {
+                $("#usernameMsg").html("");
+                let val = $(this).val();//获取用户输入的内容
+                if (val.trim() == "") //用户没输入内容，直接返回
+                    return;
+                $.post("data4.txt", "", function (data) {
+                    let canUse = true;//可用标记
+                    for (let username of data) {
+                        if (val.trim() == username) {//用户名已经存在了
+                            canUse = false;
+                            break;
+                        }
+                    }
+                    //改变dom
+                    if (canUse) {
+                        $("#usernameMsg").html("用户名可以使用").css("color", "green");
+                    } else {
+                        $("#usernameMsg").html("用户名已经被注册了").css("color", "red");
+                    }
+                }, "json");
+            });
+        })
+    </script>
+</head>
+<body>
+<form action="">
+    用户名：<input type="text" id="username" name="username"/><span id="usernameMsg"></span><br/>
+    密&nbsp;&nbsp;&nbsp;码：<input type="password" id="password" name="password"/><span id="passwordMsg"></span><br/>
+    <input type="submit" value="注册"/>
+</form>
+</body>
+</html>

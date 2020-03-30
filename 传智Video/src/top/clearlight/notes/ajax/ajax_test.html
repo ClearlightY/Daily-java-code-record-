@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax_js发送异步请求</title>
+    <script type="text/javascript">
+        onload = function () {
+            let btnObj = document.querySelector("#btn");
+            btnObj.onclick = function () { // 给id=btn的按钮注册点击事件
+                // 1. 创建xhr对象 (找一个替我那快递的人)
+                let xhr = new XMLHttpRequest();
+                // 2. 建立和服务器的链接 (拿快递的人和快递员建立联系)
+                // 参数1: 请求参数; 参数2: 请求的服务器地址; 参数3: 是否是异步
+                xhr.open("get", "top.clearlight.notes.ajax.data.txt", true);
+                // 3. 向服务器发送请求(去拿快递)
+                xhr.send();
+                // 4. (注册时间) (去拿快递的人那会快递时给我汇报)
+                xhr.onreadystatechange = (() => {
+                    console.log("响应码: " + xhr.status + ", xhr的状态码: " + xhr.readyState);
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        // 获取服务器返回的文本内容
+                        let txt = xhr.responseText;
+                        // JS的DOM编程
+                        document.querySelector("#content").innerHTML = txt;
+                    }
+                })
+            }
+        }
+    </script>
+</head>
+<body>
+<input type="button" id="btn" value="发送异步请求"/><br/>
+服务器返回的内容是: <span id="content" style="color: red"></span>
+</body>
+</html>

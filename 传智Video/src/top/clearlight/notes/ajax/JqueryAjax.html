@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery的方式发送异步请求</title>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $("#btn").click(function () {
+                $.ajax({
+                    "type": "get", // 请求方式
+                    "url": "data2.txt", // 用data2.txt模拟服务器程序,请求的地址
+                    "dataType": "json", // 指定响应的数据类型
+                    "async": true, // 异步请求, 一般省略
+                    "success": function (data) {
+                        //alert("数据是："+data+",数据类型："+typeof data);
+                        // let arr1 = eval(data);//由于你指定的返回类型是text，此处把text转换为js
+                        // for(let d of arr1){
+                        // let spanObj = document.querySelector("#content");
+                        // spanObj.innerHTML = spanObj.innerHTML+d;
+                        // }
+                        for (let d of data) {//dataType直接指定json，就不用自己将文本转换为js
+                            let spanObj = document.querySelector("#content");
+                            spanObj.innerHTML = spanObj.innerHTML + d + "  ";
+                        }
+                    }
+                });
+            });
+        })
+    </script>
+</head>
+<body>
+<input type="button" id="btn" value="发送异步请求"/> <br/>
+服务器返回的内容是: <span id="content" style="color: #235"></span>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>案例-搜索建议</title>
+    <style type="text/css">
+        .content {
+            width: 743px;
+            margin: 200px auto;
+            /*text-align: center;*/
+        }
+        input[type='text'] {
+            width: 534px;
+            height: 40px;
+            font-size: 14px;
+        }
+
+        input[type='button'] {
+            width: 100px;
+            height: 46px;
+            background: #3388ff;
+            border: 0;
+            color: #fff;
+            font-size: 15px
+        }
+        .show {
+            position: absolute;
+            width: 516px;
+            border: 1px solid #efefef;
+            border-top: 0;
+            display: none;
+            text-align: left;
+            color: darkgray;
+            line-height: 20px;
+            padding: 5px 10px;
+        }
+    </style>
+    <!--引入jQuery的js文件-->
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript">
+        function getData(inputObj) {
+            //先清空以下show的内容
+            $("#show").empty();
+            //获取用户输入的内容
+            let keyWord = inputObj.value;
+            //判断：用户如果没有输入任何内容，不做处理
+            if(keyWord.length==0){
+                return;
+            }
+            //构建正则表达式对象
+            let reg1 = new RegExp("^"+keyWord);//^表示必须以什么开头
+            //发送异步请求
+            // $.ajax({
+            //     "type":"get",//请求方式
+            //     "url":"data3.txt",//请求的地址
+            //     "data":"key="+keyWord,//向服务器发送的数据（没学服务器，此处暂时没用）
+            //     "dataType":"json",
+            //     "success":function (data) {
+            //         //console.log(data)
+            //         for(let book of data){
+            //             //book:java入门；mysql
+            //             if(reg1.test(book)){//用正则匹配每一本的书名
+            //                 $("#show").append("<div>"+book+"</div>");
+            //             }
+            //         }
+            //         //显示span中的内容
+            //         $("#show").show();//慢慢显示出来.指定毫秒值
+            //     }
+            // });
+            $.get(
+                "data3.txt",//请求的地址
+                "key="+keyWord,//向服务器发送的数据（没学服务器，此处暂时没用）
+                function (data) {
+                    //console.log(data)
+                    for(let book of data){
+                        //book:java入门；mysql
+                        if(reg1.test(book)){//用正则匹配每一本的书名
+                            $("#show").append("<div>"+book+"111</div>");
+                        }
+                    }
+                    //显示span中的内容
+                    $("#show").show();//慢慢显示出来.指定毫秒值
+                },
+                "json"
+            );
+        }
+    </script>
+</head>
+<body>
+<div class="content">
+     <input type="text" id="txtid" name="word" onkeyup="getData(this)">
+     <input type="button" value="搜索">
+     <div class="show" id="show"></div>
+
+</div>
+</body>
+</html>

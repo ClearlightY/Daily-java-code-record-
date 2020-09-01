@@ -10,7 +10,7 @@ public class InterfaceTest {
         honest.helpOther();
 
         Volant volant1 = new BirdMan();
-        volant.fly();
+        volant1.fly();
         System.out.println(volant1.FLY_HEIGHT);
     }
 }

@@ -1,9 +1,9 @@
 package top.clearlight.grammer;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.math.BigDecimal;
+import java.util.*;
 
 public class ArraysUtilLearn {
     public static void main(String[] args) {
@@ -55,5 +55,16 @@ public class ArraysUtilLearn {
         int[] arr1 = new int[]{1, 2, 3};
         int[] arr2 = {1, 2, 3};
 
+        try (Scanner scanner = new Scanner(new File("test.txt"))) {
+            while (scanner.hasNext()) {
+                System.out.println(scanner.nextLine());
+            }
+        } catch (FileNotFoundException fnfe) {
+            fnfe.printStackTrace();
+        }
+
+        BigDecimal m = new BigDecimal("1.255533");
+        BigDecimal n = m.setScale(3,BigDecimal.ROUND_HALF_DOWN);
+        System.out.println(n);// 1.255
     }
 }

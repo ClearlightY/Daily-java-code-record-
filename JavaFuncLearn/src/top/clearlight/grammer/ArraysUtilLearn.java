@@ -63,8 +63,29 @@ public class ArraysUtilLearn {
             fnfe.printStackTrace();
         }
 
-        BigDecimal m = new BigDecimal("1.255533");
-        BigDecimal n = m.setScale(3,BigDecimal.ROUND_HALF_DOWN);
-        System.out.println(n);// 1.255
+        String[] str = new String[]{"you", "wu"};
+        List list = Arrays.asList(str);
+        System.out.println(list);
+        str[0] = "wow";
+        System.out.println(list);
+        // 下面语句会报错, 因为asList返回的是Arrays内部类里的ArrayList, 由于没有重写add方法, 因此会抛出异常
+        // list.add("ao");
+        List list1 = new ArrayList(list);
+        list1.add("ao");
+        System.out.println(list1);
+
+        System.out.println(list.getClass());
+        System.out.println(list1.getClass());
+
+        String [] s= new String[]{
+                "dog", "lazy", "a", "over", "jumps", "fox", "brown", "quick", "A"
+        };
+        List<String> list3 = Arrays.asList(s);
+        System.out.println(list3);
+        Collections.reverse(list3);
+        s=list3.toArray(new String[0]);//没有指定类型的话会报错
+        System.out.println(list3);
+        System.out.println(s);
+
     }
 }
